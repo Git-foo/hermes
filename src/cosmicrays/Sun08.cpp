@@ -41,7 +41,8 @@ QPDensityPerEnergy Sun08::getDensityPerEnergy(
 	if (rho < 3_kpc) rho = 3_kpc;
 
 	QNumber profile = exp(-(rho - r_Earth) / h_r - fabs(pos_.z) / h_d);
-	return C_0 * profile *
+	return C_0 * profile *getDensityPerEnergy
+	
 	       std::pow(static_cast<double>(getLorentzFactor(m_electron, E_)),
 	                -spectralIndex) /
 	       (m_electron * c_squared);
