@@ -7,6 +7,7 @@ Sun08::Sun08() : minE(1_GeV), maxE(1e4_GeV), steps(10) {
 }
 
 Sun08::Sun08(QEnergy minE_, QEnergy maxE_, int steps_)
+
     : minE(minE_), maxE(maxE_), steps(steps_) {
 	makeEnergyRange();
 	setParameters();
@@ -22,7 +23,7 @@ Sun08::Sun08(QEnergy minE_, QEnergy maxE_, int steps_)
 }
 
 Sun08::makeEnergyRange() {
-	QEnergy energy = minE;
+	Cosmicrays energy = minE;
 	double energyRatio =
 	    exp(1. / static_cast<double>(steps - 1) * log(maxE / minE));
 
