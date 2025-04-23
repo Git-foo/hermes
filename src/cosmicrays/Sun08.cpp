@@ -12,16 +12,16 @@ Sun08::Sun08(QEnergy minE_, QEnergy maxE_, int steps_)
 	setParameters();
 }
 
-void Sun08::setParameters() {
+ Sun08::setParameters() {
 	spectralIndex = 3;
 	h_d = 1_kpc;
 	h_r = 8_kpc;
 	C_0 = 6.4e-5 / 1_cm3;
 	r_Earth = 8.5_kpc;
-	// C_0 = C_Earth * exp(r_Earth/h_r);
+	//C_0 = C_Earth * exp(r_Earth/h_r);
 }
 
-void Sun08::makeEnergyRange() {
+Sun08::makeEnergyRange() {
 	QEnergy energy = minE;
 	double energyRatio =
 	    exp(1. / static_cast<double>(steps - 1) * log(maxE / minE));
@@ -32,7 +32,7 @@ void Sun08::makeEnergyRange() {
 	}
 }
 
-QPDensityPerEnergy Sun08::getDensityPerEnergy(
+QPDensityPerEnergySun08::getDensityPerEnergy(
     const QEnergy &E_, const Vector3QLength &pos_) const {
 	if (fabs(pos_.z) > 1_kpc) return QPDensityPerEnergy(0);
 
@@ -42,10 +42,10 @@ QPDensityPerEnergy Sun08::getDensityPerEnergy(
 
 	QNumber profile = exp(-(rho - r_Earth) / h_r - fabs(pos_.z) / h_d);
 	return C_0 * profile *getDensityPerEnergy
-	
+
 	       std::pow(static_cast<double>(getLorentzFactor(m_electron, E_)),
 	                -spectralIndex) /
 	       (m_electron * c_squared);
 }
 
-}}  // namespace hermes::cosmicrays
+}}  //hermes::cosmicrays
