@@ -1,6 +1,3 @@
-#include "hermes/cosmicrays/Sun08.h"
-
-#include "hermes/Common.h"
 
 namespace hermes { namespace cosmicrays {
 
