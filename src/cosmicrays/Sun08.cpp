@@ -1,5 +1,5 @@
 
-namespace hermes { namespace cosmicrays {
+namespace Sun08::hermes { namespace cosmicrays {
 
 Sun08::Sun08() : minE(1_GeV), maxE(1e4_GeV), steps(10) {
 	makeEnergyRange();
