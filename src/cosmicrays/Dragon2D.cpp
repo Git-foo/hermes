@@ -156,7 +156,6 @@ void Dragon2D::readDensity2D() {
 		}
 		hduIndex++;
 	}
-}
 
 }}  // namespace hermes::cosmicrays
 
