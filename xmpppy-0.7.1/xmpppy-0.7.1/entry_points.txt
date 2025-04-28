@@ -1,0 +1,3 @@
+[console_scripts]
+xmpp-message = xmpp.cli:simple_message
+
